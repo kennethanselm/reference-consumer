@@ -27,12 +27,7 @@
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter</artifactId>
-    </dependency>
-     <dependency>
-       <groupId>io.qameta.allure</groupId>
-       <artifactId>allure-junit5</artifactId>
-       <version>${allure.version}</version>
-        </dependency> 
+             </dependency> 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -66,44 +61,6 @@
                     <pactDirectory>target/pacts</pactDirectory>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.22.0</version>
-            <configuration>
-              <argLine>
-                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-              </argLine>
-              <systemProperties>		
-                <property>	
-                     <name>allure.results.directory</name>		
-                     <value>${project.build.directory}/allure-results</value>		
-                 </property>		
-               </systemProperties>     
-             </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>     
-       </plugin>
-       <plugin>
-          <groupId>io.qameta.allure</groupId>
-          <artifactId>allure-maven</artifactId>
-          <version>2.10.0</version>
-          <configuration>
-              <reportVersion>${allure.version}</reportVersion>
-              <allureDownloadUrl>https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip</allureDownloadUrl>
-              <outputDirectory>${basedir}/target/allure-reports/</outputDirectory>
-              <allureResultsDirectory>${basedir}/target/allure-results</allureResultsDirectory>
-          </configuration>
-        </plugin>
         </plugins>
     </build>
 
